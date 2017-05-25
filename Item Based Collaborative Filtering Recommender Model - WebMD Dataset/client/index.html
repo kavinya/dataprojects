@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+<title>WebMD Recommender</title>
+<link rel='stylesheet' href='bower/bootstrap/dist/css/bootstrap.min.css'>
+<style>
+	#sex .sex-img{
+		cursor: pointer;
+	}
+	
+	.topic-link{
+		height: 100%;
+		width: 100%;
+	}
+
+	.sex-col{
+		height: 80%;
+	}
+
+	.sex-img{
+		width: auto;
+		height: 100%;
+	}
+
+	.fullscreen {
+		height: 100vh;
+		text-align: center;
+		position: relative;
+		display: none;
+		opacity: 0;
+	}
+	
+	.list {
+		max-height: 60vh;
+		overflow: auto;
+	}
+	
+	.back-btn {
+		position: absolute;
+		top: .5em;
+		left: .5em;
+	}
+	
+	.area{
+		background-color: pink;
+		position: absolute;
+	}
+	
+	.body-part{
+		z-index: 10;
+		cursor: pointer;
+	}
+	
+	.topic {
+		cursor: pointer;
+	}
+	
+	.topic:hover, .topic.selected,
+	.question:hover, .question.selected{
+		background-color: lightblue;
+	}
+	
+	.bubble {
+		cursor: pointer;
+	}
+	
+	.bubble:hover,
+	.bubble.selected {
+		stroke: #000;
+		stroke-width: 1.2px;
+	}
+	
+	.node text {
+		pointer-events: none;
+	}
+
+	g{
+		pointer-events: bounding-box;
+	}
+</style>
+</head>
+<body>
+<div class='container-fluid'>
+	<div id='title' class='fullscreen'>
+		<div class='row vcenter'>
+			<div class="jumbotron">
+				<h1>Welcome to our Webmd Recommender Thing</h1>
+				<p>Where we help you, help you.</p>
+				<button data-from-id='#title' data-to-id='#sex' class='transition btn btn-primary btn-lg btn-block'>Get Started</button>
+			</div>
+		</div>
+	</div>
+	<div id='sex' class='fullscreen'>
+		<button data-from-id='#sex' data-to-id='#title' class='back-btn transition btn btn-warning'>Back</button>
+		<div class='row vcenter'>
+			<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+				<h1>Select Your Sex:</h1>
+			</div>
+			<div class='sex-col col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+				<h1>Male</h1>
+				<a href='#topic'>
+					<img class='sex-img' data-sex='male' src='img/aiga-toilet-men.png'>
+				</a>
+			</div>
+			<div class='sex-col col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+				<h1>Female</h1>
+				<a href='#topic'>
+					<img class='sex-img' data-sex='female' src='img/aiga-toilet-women.png'>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div id='topic' class='fullscreen'>
+		<button data-from-id='#topic' data-to-id='#sex' class='back-btn transition btn btn-warning'>Back</button>
+		<div class='row vcenter'>
+			<h1>What area(s) are you interested in?</h1>
+			<div class='sex-col col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+				<div id='male-body' class='human-body' style='display: none;'>
+<svg width="191.24000000000004" height="492.4100000000001" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <filter id="svg_2_blur" x="-50%" y="-50%" width="200%" height="200%">
+   <feGaussianBlur stdDeviation="0"/>
+  </filter>
+ </defs>
+ <metadata>image/svg+xmlOpenclipartaiga toilet men2009-04-20T07:42:31Set of international airport symbols.
+\n
+\nSource: http://www.aiga.org/content.cfm/symbol-signs
+\n
+\nConverted to SVG by Jean-Victor Balin.https://openclipart.org/detail/25150/aiga-toilet-men-by-anonymous-25150Anonymousaigaaiga no bgblack and whiteexternalsourceiconmap symbolsignsilhouettesymbol</metadata>
+ <g>
+  <title>background</title>
+  <rect x="-1" y="-1" width="193.24" height="494.41" id="canvas_background" fill="none"/>
+ </g>
+ <g>
+  <g stroke="null">
+   <g stroke="null">
+    <path id="path1521" d="m95.872,80.78211c22.548,0 40.838,-18.284 40.838,-40.836c0,-22.551 -18.29,-40.835 -40.838,-40.835c-22.553,0 -40.834,18.284 -40.834,40.835c0,22.552 18.281,40.836 40.834,40.836z" fill="#000000" stroke="null"/>
+    <path id="path1523" d="m95.872,39.94611" fill="#000000" stroke="null"/>
+   </g>
+   <path id="path1525" d="m52.173,89.79411c-28.917,0 -52.173,23.587 -52.173,52.997l0,125.38c0,24.37 35.673,24.37 35.673,0l0,-114.64l8.445,0l0,313.9c0,32.59 47.503,31.63 47.503,0l0,-182.22l8.182,0l0,182.22c0,31.63 47.767,32.59 47.767,0l0,-313.9l8.24,0l0,114.64c0,24.56 35.49,24.56 35.43,0l0,-124.63c0,-27.12 -21.07,-53.691 -52.82,-53.691l-86.247,-0.056z" fill="#000000" stroke="null"/>
+  </g>
+  <g stroke="null">
+   <title>Right Hand</title>
+   <path class='body-part' data-part='hand' fill="none" stroke-width="1.5" fill-opacity="null" d="m35.09179,257.54279l0,14.22222l0,0c0,7.85472 -7.85557,14.22222 -17.54589,14.22222c-9.69033,0 -17.54589,-6.36751 -17.54589,-14.22222l0,-14.22222l35.09179,0l-0.00001,0z"  filter="url(#svg_2_blur)" stroke="#ffffff"/>
+  </g>
+  <g>
+   <title>Head</title>
+   <path class='body-part' data-part='head' d="m95.872,80.78211c22.548,0 40.838,-18.284 40.838,-40.836c0,-22.551 -18.29,-40.835 -40.838,-40.835c-22.553,0 -40.834,18.284 -40.834,40.835c0,22.552 18.281,40.836 40.834,40.836z" fill="#000000" stroke="#ffffff"/>
+  </g>
+  <g  stroke="null">
+   <title>Left Hand</title>
+   <path class='body-part' data-part='hand' fill="none" stroke-width="1.5" fill-opacity="null" d="m191.12573,258.5184l0,14.22222l0,0c0,7.85472 -7.85557,14.22222 -17.54589,14.22222c-9.69034,0 -17.5459,-6.36751 -17.5459,-14.22222l0,-14.22222l35.0918,0l-0.00001,0z"  filter="url(#svg_2_blur)" stroke="#ffffff"/>
+  </g>
+  <g stroke="null" >
+   <title>Chest</title>
+   <rect class='body-part' data-part='chest' stroke="#ffffff" fill="none" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" x="44.19097" y="90.24396" width="102.89249" height="102.43911" />
+  </g>
+  <g>
+   <title>Abdomen</title>
+   <rect class='body-part' data-part='abdominal' stroke="#ffffff"  height="60.4767" width="101.90561" y="193.81114" x="44.9053" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" fill="none"/>
+  </g>
+  <g>
+   <title>Left Hip</title>
+   <rect class='body-part' data-part='hip' fill="none" stroke="#ffffff" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" x="44.94204" y="255.25424" width="38.98305" height="29.83051" />
+  </g>
+  <g>
+   <title>Right Hip</title>
+   <rect class='body-part' data-part='hip' fill="none" stroke="#ffffff" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" x="107.6539" y="254.91526" width="38.98305" height="29.83051" />
+  </g>
+  <g>
+   <title>Groin</title>
+   <rect class='body-part' data-part='groin' height="29.59999" width="23.19999" y="255.19985" x="84.53329" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#ffffff" fill="none"/>
+  </g>
+  <g stroke="null">
+   <title>Right Foot</title>
+   <path class='body-part' data-part='foot' fill="none" stroke-width="1.5" fill-opacity="null" d="m147.15742,462.32789l0,14.22222l0,0c0,7.85472 -10.4992,14.22222 -23.4506,14.22222c-12.95142,0 -23.45061,-6.36751 -23.45061,-14.22222l0,-14.22222l46.90122,0l-0.00001,0l0,0z"  filter="url(#svg_2_blur)" stroke="#ffffff"/>
+  </g>
+  <g stroke="null">
+   <title>Left Foot</title>
+   <path class='body-part' data-part='foot' fill="none" stroke-width="1.5" fill-opacity="null" d="m91.1574,462.32789l0,14.22222l0,0c0,7.85472 -10.4992,14.22222 -23.4506,14.22222c-12.95142,0 -23.4506,-6.36751 -23.4506,-14.22222l0,-14.22222l46.90121,0l-0.00001,0l0,0z"  filter="url(#svg_2_blur)" stroke="#ffffff"/>
+  </g>
+  <g>
+   <title>Left Shoulder</title>
+   <rect class='body-part' data-part='shoulder' height="61.66698" width="42.22244" y="91.11157" x="0.8973" stroke-width="1.5" stroke="#ffffff" fill="none"/>
+  </g>
+  <g>
+   <title>Right Shoulder</title>
+   <rect class='body-part' data-part='shoulder' height="61.66698" width="42.22244" y="91.11157" x="147.8973" stroke-width="1.5" stroke="#ffffff" fill="none"/>
+  </g>
+  <g>
+   <title>Left Arm</title>
+   <rect class='body-part' data-part='arm' stroke="#ffffff"  height="104.76227" width="34.28584" y="152.85768" x="1.09586" stroke-width="1.5" fill="none"/>
+  </g>
+  <g>
+   <title>Right Arm</title>
+   <rect class='body-part' data-part='arm' stroke="#ffffff"  height="104.76227" width="34.28584" y="152.85768" x="156.09586" stroke-width="1.5" fill="none"/>
+  </g>
+ </g>
+</svg>				</div>
+				<div id='female-body' class='human-body'>
+<svg width="226" height="492.4100000000001" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <filter id="svg_2_blur" x="-50%" y="-50%" width="200%" height="200%">
+   <feGaussianBlur stdDeviation="0"/>
+  </filter>
+ </defs>
+ <metadata>image/svg+xmlOpenclipartaiga toilet men2009-04-20T07:42:31Set of international airport symbols.
+\n
+\nSource: http://www.aiga.org/content.cfm/symbol-signs
+\n
+\nConverted to SVG by Jean-Victor Balin.https://openclipart.org/detail/25150/aiga-toilet-men-by-anonymous-25150Anonymousaigaaiga no bgblack and whiteexternalsourceiconmap symbolsignsilhouettesymbol</metadata>
+ <g>
+  <title>background</title>
+  <rect x="-1" y="-1" width="193.24" height="494.41" id="canvas_background" fill="none"/>
+ </g>
+ <g>
+  <g transform="translate(0.000000,491.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M1037 4900 c-197 -50 -333 -256 -298 -452 28 -158 127 -271 279 -318
+77 -24 138 -25 217 -5 111 29 213 116 263 223 23 50 27 70 27 162 0 99 -2 109
+-33 172 -42 86 -129 168 -209 198 -65 25 -187 34 -246 20z"/>
+<path d="M736 3994 c-133 -33 -269 -139 -333 -259 -19 -36 -98 -281 -201 -620
+-220 -725 -205 -669 -197 -721 11 -76 88 -144 162 -144 44 1 108 34 133 71 16
+21 80 223 185 573 l160 541 44 3 c37 3 42 1 37 -15 -3 -10 -112 -387 -242
+-838 -130 -451 -249 -863 -264 -915 -15 -52 -26 -98 -23 -103 2 -4 116 -7 254
+-7 l249 0 0 -709 c0 -479 3 -719 11 -738 24 -63 100 -113 174 -113 74 0 150
+50 174 113 8 19 11 261 11 743 l0 714 60 0 60 0 0 -720 c0 -784 -3 -747 57
+-801 71 -66 204 -62 265 7 48 55 48 47 48 799 l0 705 250 0 c222 0 250 2 250
+16 0 13 -502 1753 -530 1837 -9 27 -9 27 38 27 l47 0 119 -403 c215 -725 206
+-697 248 -739 62 -62 150 -64 217 -2 45 40 67 104 56 160 -15 84 -369 1223
+-393 1267 -35 64 -130 167 -190 206 -27 17 -75 41 -108 53 -56 21 -76 22 -414
+25 -283 2 -367 -1 -414 -13z"/>
+</g>
+
+  <g>
+   <title>Head</title>
+   <path class='body-part' data-part='head' d="m114.872,80.78211c22.548,0 40.838,-18.284 40.838,-40.836c0,-22.551 -18.29,-40.835 -40.838,-40.835c-22.553,0 -40.834,18.284 -40.834,40.835c0,22.552 18.281,40.836 40.834,40.836z" fill="#000000" stroke="#ffffff"/>
+  </g>
+
+  <g stroke="null" >
+   <title>Chest</title>
+   <path class='body-part' data-part='chest' stroke="#ffffff" fill="none" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" x="44.19097" y="90.24396" d="M73 150 L153 150 L170 200 L55 200 Z" />
+  </g>
+  <g>
+   <title>Abdomen</title>
+   <path class='body-part' data-part='abdomen' stroke="#ffffff"  y="193.81114" x="44.9053" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" fill="none" d="M55 200 L170 200 L185 250 L40 250 Z"/>
+  </g>
+  <g>
+   <title>Groin</title>
+   <path class='body-part' data-part='groin' fill="none" stroke="#ffffff" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" x="44.94204" y="255.25424" d="M100 250 L130 250 L150 280 L80 280 Z"/>
+  </g>
+  <g>
+   <title>Hip</title>
+   <path class='body-part' data-part='hip' fill="none" stroke="#ffffff" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" x="107.6539" y="254.91526" d="M35 280 L200 280 L210 335 L20 335 Z"/>
+  </g>
+  <g stroke="null">
+   <title>Right Foot</title>
+   <path class='body-part' data-part='foot' fill="none" stroke-width="1.5" fill-opacity="null" d="m160.15742,462.32789l0,14.22222l0,0c0,7.85472 -10.4992,14.22222 -23.4506,14.22222c-12.95142,0 -23.45061,-6.36751 -23.45061,-14.22222l0,-14.22222l46.90122,0l-0.00001,0l0,0z"  filter="url(#svg_2_blur)" stroke="#ffffff"/>
+  </g>
+  <g stroke="null">
+   <title>Left Foot</title>
+   <path class='body-part' data-part='foot' fill="none" stroke-width="1.5" fill-opacity="null" d="m110.1574,462.32789l0,14.22222l0,0c0,7.85472 -10.4992,14.22222 -23.4506,14.22222c-12.95142,0 -23.4506,-6.36751 -23.4506,-14.22222l0,-14.22222l46.90121,0l-0.00001,0l0,0z"  filter="url(#svg_2_blur)" stroke="#ffffff"/>
+  </g>
+  <g>
+   <title>Left Shoulder</title>
+   <rect class='body-part' data-part='shoulder' height="61.66698" width="42.22244" y="89.24396" x="23.8973" stroke-width="1.5" stroke="#ffffff" fill="none"/>
+  </g>
+  <g>
+   <title>Right Shoulder</title>
+   <rect class='body-part' data-part='shoulder' height="61.66698" width="42.22244" y="89.24396" x="158.8973" stroke-width="1.5" stroke="#ffffff" fill="none"/>
+  </g>
+  <g>
+   <title>Left Arm</title>
+   <path class='body-part' data-part='arm' stroke="#ffffff"  y="152.85768" x="156.09586" stroke-width="1.5" fill="none" d="M30 150 L65 150 L45 230 L0 230 Z"/>
+  </g>
+  <g>
+   <title>Left Hand</title>
+   <path class='body-part' data-part='hand' stroke="#ffffff"  y="152.85768" x="156.09586" stroke-width="1.5" fill="none" d="M0 230 L45 230 L32 267 L0 267 Z"/>
+  </g>
+  <g>
+   <title>Right Arm</title>
+   <path class='body-part' data-part='arm' stroke="#ffffff"  y="152.85768" x="156.09586" stroke-width="1.5" fill="none" d="M161 150 L197 150 L222 230 L186 230 Z"/>
+  </g>
+  <g>
+   <title>Right Hand</title>
+   <path class='body-part' data-part='hand' stroke="#ffffff"  y="152.85768" x="156.09586" stroke-width="1.5" fill="none" d="M186 230 L222 230 L240 267 L195 267 Z"/>
+  </g>
+
+ </g>
+</svg>
+				</div>
+			</div>
+			<div class='sex-col col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+				<h2>Related Topics</h2>
+				<div id='topic-list' class='list'></div>
+				<div class='row'>
+					<div class='col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-offset-2 col-xs-8'>
+						<button data-from-id='#topic' data-to-id='#question' style='display: none;' id='send-topics-btn' class='btn btn-primary btn-lg btn-block'>Get Related Questions</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id='question' class='fullscreen'>
+		<button data-from-id='#question' data-to-id='#topic' class='back-btn transition btn btn-warning'>Back</button>
+		<div class='row vcenter'>
+			<h1>Resolve Your Problem(s)</h1>
+			<div class='sex-col col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+				<h2>Related Questions</h2>
+				<div id='question-list' class='list'></div>
+				<button style='display: none;' id='send-questions-btn' class='btn btn-primary form-control'>Get Potential Answers</button>
+			</div>
+			<div class='sex-col col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+				<h2>Relevance</h2>
+				<div id='bubbles'>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id='answer' class='fullscreen'>
+		<button data-from-id='#answer' data-to-id='#question' class='back-btn transition btn btn-warning'>Back</button>
+		<div class='row vcenter'>
+			<div class='sex-col col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+				<h2>Potential Answers</h2>
+				<div id='answer-list' class='list'></div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src='bower/jquery/dist/jquery.min.js'></script>
+<script src='bower/bootstrap/dist/js/bootstrap.min.js'></script>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+var bodyParts = [],
+	servers = {};
+
+//Connect to servers
+generateIndexServer();
+generateTopicServer();
+generateQuestionServer();
+
+function generateIndexServer(){
+	servers.index = new WebSocket("ws://localhost:8765/");
+
+	//Define index server interactions
+	servers.index.onmessage = function (event) {
+	    var topics = JSON.parse(event.data),
+	    	$list = $('#topic-list').empty();
+
+	    $(topics).each(function(idx, topic){
+	        var name = topic.topicname,
+	        	id = topic.topicid,
+	        	$topic = $(document.createElement('div')),
+	        	$header = $(document.createElement('h4'));
+
+	        $header
+	        	.css('pointer-events', 'none')
+	        	.append(name);
+
+        	$topic
+        		.addClass('topic')
+        		.data('id', id)
+        		.append($header)
+        		.click(topic_Click);
+
+	        $list.append($topic);
+	    });
+
+		vcenter($($list.closest('.vcenter')));
+	};
+
+	servers.index.onclose = function (event) {
+		generateIndexServer();
+	};
+
+	servers.index.onerror = function (event) {
+		console.error("Error in index server:" + event);
+	};
+}
+
+function generateTopicServer(){
+	servers.topic = new WebSocket("ws://localhost:8766/");
+
+	//Define topic server interactions
+	servers.topic.onmessage = function (event) {
+	    var questions = JSON.parse(event.data);
+
+	    $(questions).each(function(idx, question){
+	    	if(question.questiontopicid){
+	    		addToList(question);
+	    	}
+	    	else{
+	    		createBubbleVisual(question);
+	    	}
+
+	    });
+
+		swapSections($('#topic'), $('#question'));
+	};
+
+	servers.topic.onclose = function (event) {
+		generateTopicServer();
+	};
+
+	servers.topic.onerror = function (event) {
+		console.error("Error in topic server:" + event);
+	};
+}
+
+function createBubbleVisual(relevance){
+	var relArr = [],
+		$bubbles = $('#bubbles').empty(),
+		minRel = Number.MAX_SAFE_INTEGER,
+		maxRel = Number.MIN_SAFE_INTEGER;
+	
+	$bubbles.height($('#question-list').height());
+
+	Object.keys(relevance).forEach(function(key){
+		var value = relevance[key];
+		
+		if(value < minRel){
+			minRel = value;
+		}
+
+		if(value > maxRel && value != 1){
+			maxRel = value;
+		}
+
+		relArr.push({
+			name: key.split('-').slice(0, -1).join(' '),
+			size: value
+		});
+	});
+	
+	var width = $bubbles.width(),
+		height = $bubbles.height(),
+		colorScale = d3.scale.linear().domain([minRel,maxRel]).range(["#CDF3FF","#C0E6FF"]);
+
+	var pack = d3.layout.pack()
+		.sort(null)
+		.size([width, height])
+		.padding(2);
+
+	var svg = d3.select("#bubbles").append("svg")
+		.attr("width", width)
+		.attr("height", height)
+		.append("g");
+
+	var json = {name: 'flare', size: 0, children: relArr},
+		data = pack.nodes(flatten(json)).filter(function(d){
+			return !d.children;
+		});
+
+	var node = svg.selectAll(".node")
+		.data(data)
+		.enter().append("g")
+			.attr("class", "node")
+			.attr("transform", function(d) { 
+				return "translate(" + d.x + "," + d.y + ")"; 
+			})
+			.attr('title', function(d) { 
+				return d.name; 
+			});
+
+	node.append("circle")
+		.attr('class', 'bubble')
+		.attr('fill', function(d){
+			return d.value === 1 ? "#b3d9ff" : colorScale(d.value);
+		})
+		.attr("r", function(d) { 
+			return d.r; 
+		})
+		.on('click', function(d){
+			$(this).toggleClass('selected');
+		});
+
+	node.append("text")
+		.text(function(d) { 
+			return d.name; 
+		})
+		.attr('font-size', '1.25em')
+		.attr('dy', function(d){
+			return $(this).height() / 2;
+		})
+		.attr("dx", function(d){
+			return -this.getComputedTextLength() / 2;
+		});
+
+	// Returns a flattened hierarchy containing all leaf nodes under the root.
+	function flatten(root) {
+		var nodes = [];
+
+		function recurse(node) {
+			if (node.children) {
+				node.children.forEach(recurse);
+			}
+			else {
+				nodes.push({name: node.name, value: node.size});
+			}
+		}
+
+		recurse(root);
+
+		return {children: nodes};
+	}
+}
+
+function addToList(question){
+	var $list = $('#question-list'),
+		title = question.questiontitle,
+		topicIds = question.questiontopicid.split(', '),
+		url = question.questionurl,
+		date = question.questionpostdate,
+		memberId = question.questionmemberid,
+		questionId = question.questionid,
+		$question = $(document.createElement('div')),
+		$header = $(document.createElement('h4')),
+		$link = $(document.createElement('a'));
+
+
+	$link
+		.html(title)
+		.attr({
+			target: '_blank',
+			href: url
+		});
+
+	$header
+		.css('pointer-events', 'all')
+		.append($link);
+
+	$question
+		.addClass('question')
+		.data('id', questionId)
+		.append($header)
+		.click(question_Click);
+
+	$list.append($question);
+
+	return $list;
+}
+
+function generateQuestionServer(){
+	servers.question = new WebSocket("ws://localhost:8767/");
+
+	//Define question server interactions
+	servers.question.onmessage = function (event) {
+	    var answers = JSON.parse(event.data),
+	    	$list = $('#answer-list').empty();
+
+	    $(answers).each(function(idx, answer){
+	        var content = answer.answercontent,
+	        	helpfulNum = answer.answerhelpfulnum,
+	        	id = answer.answerid,
+	        	memberId = answer.answermemberid,
+	        	postDate = answer.answerpostdate,
+	        	url = answer.answerquestionurl,
+	        	voteNum = answer.answervotenum,
+	        	questionId = answer.answerquestionid,
+	        	$answer = $(document.createElement('div')),
+	        	$header = $(document.createElement('h4'));
+
+
+	        $header
+	        	.css('pointer-events', 'none')
+	        	.append(content);
+
+        	$answer
+        		.addClass('answer')
+        		.data('id', id)
+        		.append($header)
+        		.click(answer_Click);
+
+	        $list.append($answer);
+	    });
+
+		vcenter($($list.closest('.vcenter')));
+	};
+
+	servers.question.onclose = function (event) {
+		generateQuestionServer();
+	};
+
+	servers.question.onerror = function (event) {
+		console.error("Error in question server:" + event);
+	};
+}
+
+$(document).ready(function(){
+	$('.sex-img').click(sexImg_Click);
+	$('.transition').click(transition_Click);
+	$('.body-part').click(bodyPart_Click);
+
+	$('#send-topics-btn').click(sendTopicsButton_Click);
+	$('#send-questions-btn').click(sendQuestionsButton_Click);
+
+	showSection($('#title'));
+});
+
+function transition_Click(e){
+	var $target = $(event.target),
+		fromId = $target.data('from-id'),
+		toId = $target.data('to-id');
+
+	swapSections($(fromId), $(toId));
+}
+
+function swapSections($from, $to){
+	hideSection($from);	
+	showSection($to);
+}
+
+function showSection($section){
+	var $child = $($section.children('.row.vcenter'));
+
+	$section.css('opacity', 0);
+	$section.show();
+	vcenter($child);
+	$section.animate({'opacity': 1}, 2000);
+}
+
+function hideSection($section){
+	$section.hide();
+}
+
+/*
+ * Center elements vertically
+ */
+
+function vcenter($target){
+	$target.css('padding-top', 0);
+
+	var pHeight = $target.parent().height(),
+		tHeight = $target.height(),
+		margin = pHeight / 2 - tHeight / 2;
+
+	$target.css({
+		'padding-top': margin
+	});
+}
+
+/*
+ * Functions to trigger web socket communication 
+ */
+
+function sendBodyParts(e){
+	var bodyParts = [];
+
+	$('.body-part.selected').each(function(idx, obj){
+		bodyParts.push($(obj).data('part'));
+	});
+
+	if(bodyParts.length > 0){
+		servers.index.send(bodyParts);
+	}
+	else{
+		$('#topic-list').empty();
+	}
+}
+
+function sendTopicsButton_Click(e){
+	var topics = [];
+
+	$('.topic.selected').each(function(idx, obj){
+		topics.push($(obj).data('id'));
+	});
+
+	$('#question-list').empty();
+	$('#question-list').empty();
+	servers.topic.send(topics);
+}
+
+function sendQuestionsButton_Click(e){
+	var questions = [];
+
+	$('.question.selected').each(function(idx, obj){
+		questions.push($(obj).data('id'));
+	});
+
+	servers.question.send(questions);
+}
+
+/*
+ * Functions for managin user interface with body parts in male/female svg 
+ */
+
+function bodyPart_Click(e){
+	var $target = $(e.target);
+
+	if($target.hasClass('selected')){
+		deselectBodyPart($target);
+	}
+	else{
+		selectBodyPart($target);
+	}
+	
+	sendBodyParts();
+}
+
+function selectBodyPart($target){
+	var part = $target.data('part');
+
+	$target.css({
+		'fill': 'lightgreen',
+		'opacity': .9
+	});
+
+	bodyParts.push(part);
+	$target.addClass('selected');
+}
+
+function deselectBodyPart($target){
+	var part = $target.data('part'),
+		idx;
+
+	$target.css('fill', 'transparent');
+
+	if((idx = bodyParts.indexOf(part)) !== -1){
+		bodyParts.splice(idx, 1);
+	}
+
+	$target.removeClass('selected');
+}
+
+/*
+ * Topic Selection
+ */
+
+function topic_Click(event){
+	var $target = $(event.target),
+		$sendTopicsBtn = $('#send-topics-btn');
+
+	$target.toggleClass('selected');
+
+	if($('.selected.topic').length > 0){
+		$sendTopicsBtn.show();
+	}
+	else{
+		$sendTopicsBtn.hide();
+	}
+}
+
+/*
+ * Question Selection
+ */
+
+function question_Click(event){
+	var $target = $(event.target),
+		$sendQuestionsBtn = $('#send-questions-btn');
+
+	$target.toggleClass('selected');
+
+	if($('.selected.question').length > 0){
+		$sendQuestionsBtn.show();
+	}
+	else{
+		$sendQuestionsBtn.hide();
+	}
+}
+
+/*
+ * Question Selection
+ */
+
+function answer_Click(event){
+	
+}
+
+/*
+ * Sex Selection
+ */
+
+function sexImg_Click(e){
+	var $target = $(event.target),
+		sex = $target.data('sex');
+	
+	$('.human-body').hide();
+	$('#' + sex + '-body').show();
+
+	topics = [];
+
+	$('.body-part.selected').each(function(idx, target){
+		deselectBodyPart($(target));
+	});
+
+	swapSections($('#sex'), $('#topic'));
+}
+
+</script>
+</body>
+</html>
